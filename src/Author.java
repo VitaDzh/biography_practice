@@ -10,6 +10,7 @@ public class Author {
 
     //Create 6 args custom constructor here
     //YOUR CODE HERE
+
     public Author(String firstName, String lastName, String country, boolean isAlive, int age, ArrayList<Book> listOfBooks) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -18,23 +19,6 @@ public class Author {
         this.age = age;
         this.listOfBooks = listOfBooks;
     }
-
-    public Author(String firstName, String lastName, String country, boolean isAlive, ArrayList<Book> listOfBooks) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.country = country;
-        this.isAlive = isAlive;
-        this.listOfBooks = listOfBooks;
-    }
-
-    public Author(String firstName, String lastName, String country, boolean isAlive, int age) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.country = country;
-        this.isAlive = isAlive;
-        this.age = age;
-    }
-
 
     /*
         Define instance variables here
@@ -66,9 +50,7 @@ public class Author {
                 ", listOfBooks=" + listOfBooks +
                 '}';
     }
-
  */
-
     public static final String askFirstName = "What is your favorite author’s first name?";
     public static final String askLastName = "What is your favorite author’s last name?";
     public static final String askWhereIsFrom = "Where is your favorite author from?";
@@ -77,7 +59,7 @@ public class Author {
 
     @Override
     public String toString() {
-        if(listOfBooks.size() > 0 && isAlive) {
+        if(isAlive) {
 
             return "Authors information = Author{" +
                     "firstName='" + firstName + '\'' +
@@ -85,25 +67,9 @@ public class Author {
                     ", country='" + country + '\'' +
                     ", isAlive=" + isAlive +
                     ", age=" + age +
-                    '}' +
-                    "\nAuthor's books are as listed below: " + "\n" + listOfBooks;
-        } else if(listOfBooks.size() < 1 && isAlive) {
-            return "Authors information = Author{" +
-                    "firstName='" + firstName + '\'' +
-                    ", lastName='" + lastName + '\'' +
-                    ", country='" + country + '\'' +
-                    ", isAlive=" + isAlive +
-                    ", age=" + age +
                     '}';
-        } else if(listOfBooks.size() > 0 && !isAlive){
-            return "Authors information = Author{" +
-                    "firstName='" + firstName + '\'' +
-                    ", lastName='" + lastName + '\'' +
-                    ", country='" + country + '\'' +
-                    ", isAlive=" + isAlive +
-                    '}' +
-                    "\nAuthor's books are as listed below: " + "\n" + listOfBooks;
-        } else {
+
+        } else{
             return "Authors information = Author{" +
                     "firstName='" + firstName + '\'' +
                     ", lastName='" + lastName + '\'' +

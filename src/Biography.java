@@ -39,20 +39,16 @@ public class Biography {
 
         ArrayList<Book> listOfBooks = new ArrayList<>();
         Author author = new Author("", "", "", false, 0, listOfBooks);
-
         String bookInfo;
 
             System.out.println(Author.askFirstName);
-            String firstName = inputReader.nextLine();
-            author.firstName = firstName;
+        author.firstName = inputReader.nextLine();
 
             System.out.println(Author.askLastName);
-            String lastName = inputReader.nextLine();
-            author.lastName = lastName;
+        author.lastName = inputReader.nextLine();
 
             System.out.println(Author.askWhereIsFrom);
-            String authorsCountry = inputReader.nextLine();
-            author.country = authorsCountry;
+        author.country = inputReader.nextLine();
 
             System.out.println(Author.askIsAlive);
             String isAlive = inputReader.nextLine();
@@ -60,43 +56,40 @@ public class Biography {
             if (isAlive.toUpperCase().startsWith("Y")) {
                 author.isAlive = true;
                 System.out.println(Author.askHowOld);
-                int age = inputReader.nextInt();
-                author.age = age;
+                author.age = inputReader.nextInt();
             }
-            // int attempt = 0;
+
+        // int attempt = 0;
             do{
                 System.out.println(Book.addBookInfo);
-                inputReader.nextLine();
-                bookInfo = inputReader.nextLine();
+                bookInfo = inputReader.next();
 
                 // attempt++;
                 if(bookInfo.toUpperCase().startsWith("N")) {
                     break;
                 }else {
                     System.out.println(Book.bookName);
+                    inputReader.nextLine();
                     String name = inputReader.nextLine();
 
                     System.out.println(Book.bookGenre);
                     String genre = inputReader.nextLine();
 
                     System.out.println(Book.numberOfPages);
-                    int totalPages = inputReader.nextInt();
+                    int pages = inputReader.nextInt();
 
-                    Book book = new Book(name, genre, totalPages);
+                    Book book = new Book(name, genre, pages);
                     listOfBooks.add(book);
                 }
             } while (bookInfo.toUpperCase().startsWith("Y"));
 
         System.out.println(author);
-
-
-
-
-
-
-
-
-
+        if(!listOfBooks.isEmpty()) {
+            System.out.println("Author's books are as listed below: ");
+            for (Book book : author.listOfBooks) {
+                System.out.println(book);
+            }
+        }
 
 
 
